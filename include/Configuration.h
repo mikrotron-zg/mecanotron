@@ -12,6 +12,8 @@
     // TODO define pin connections
 
     // Includes
+    #include <SPIFFS.h>
+    #include <ESPAsyncWebServer.h>
     #include "Debug.h"
 
     // Enums and global variables

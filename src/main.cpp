@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "Configuration.h"
+#include "WebServer.h"
 
 void setup() {
   // put your setup code here, to run once:
