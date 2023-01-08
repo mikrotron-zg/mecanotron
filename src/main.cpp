@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "Configuration.h"
 #include "WebServer.h"
+#include "WebSocketsCommunication.h"
 
 void setup() {
     // Program start
@@ -19,8 +20,10 @@ void setup() {
   // Start servers
   delay(DELAY_SHORT);
   startWebServer();
+  delay(DELAY_SHORT);
+  startWebSocketsServer();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  ws_server.loop(); // Wait for websocket data
 }
