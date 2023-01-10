@@ -59,7 +59,7 @@ void startWebServer() {
 
   // HTTP requests handling
   server.on("/", HTTP_GET, onRootRequest); // root request
-  server.on("/slidertron.js", HTTP_GET, onJSrequest); //JavaScript request
+  server.on("/mechanotron.js", HTTP_GET, onJSrequest); //JavaScript request
   server.on("/bootstrap.min.css", HTTP_GET, onCSSRequest); // CSS request
   server.on("/bootstrap.min.css.map", HTTP_GET, onCSSMapRequest); // CSS map request
   server.onNotFound(onPageNotFound); // anything else
