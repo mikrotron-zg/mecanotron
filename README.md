@@ -1,5 +1,5 @@
-# Mechanotron
-*Small robot car platform with mechanum wheels*
+# Mecanotron
+*Small robot car platform with mecanum wheels*
 
 ***This is work in progress, there is no releasable version yet.***
 
