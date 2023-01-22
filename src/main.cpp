@@ -3,6 +3,13 @@
 #include "WebServer.h"
 #include "WebSocketsCommunication.h"
 
+MecanumWheel wheels[] = {MecanumWheel(FRONT_LEFT_WHEEL_PIN_A, FRONT_LEFT_WHEEL_PIN_B), 
+                   MecanumWheel(FRONT_RIGHT_WHEEL_PIN_A, FRONT_RIGHT_WHEEL_PIN_B),
+                   MecanumWheel(BACK_LEFT_WHEEL_PIN_A, BACK_LEFT_WHEEL_PIN_B),
+                   MecanumWheel(BACK_RIGHT_WHEEL_PIN_A, BACK_RIGHT_WHEEL_PIN_B)};
+
+MecanumDrive drive (wheels);
+
 void setup() {
     // Program start
   #ifdef DEBUG_MODE
@@ -22,6 +29,7 @@ void setup() {
   startWebServer();
   delay(DELAY_SHORT);
   startWebSocketsServer();
+  delay(DELAY_SHORT);
 }
 
 void loop() {
