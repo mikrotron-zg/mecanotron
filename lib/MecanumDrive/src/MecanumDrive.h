@@ -57,10 +57,20 @@
       void wheelTest();
 
       /**
+       * @brief Mecanum drive demo.
+       * 
+       * This procedure demonstrates all available moves in the
+       * library, be sure to have enough free space for your
+       * vehicle to move around (1x1 meter should be enough).
+       * 
+       */
+      void demo();
+
+      /**
        * @brief Stops the vehicle.
        * 
        * @param hard If true, applies hard stop (locks all motors), 
-       *             false by default
+       *             false by default.
        */
       void stop(bool hard = false);
 
@@ -86,6 +96,7 @@
 
     private:
       MecanumWheel *_wheels;
+      void demoMoveDelay();
       void leftWheels(bool forward = true);
       void rightWheels(bool forward = true);
   };

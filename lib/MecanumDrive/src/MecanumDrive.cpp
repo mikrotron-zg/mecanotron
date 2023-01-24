@@ -20,11 +20,29 @@
  */
 
 #include "MecanumDrive.h"
+#include "Arduino.h"
 
 void MecanumDrive::wheelTest() {
   for (int i = 0; i < 4; i++) {
     _wheels[i].directionTest();
   }
+}
+
+void MecanumDrive::demo() {
+  forward();
+  demoMoveDelay();
+  reverse();
+  demoMoveDelay();
+  rotate();
+  demoMoveDelay();
+  rotate(false);
+  demoMoveDelay();
+}
+
+void MecanumDrive::demoMoveDelay() {
+  delay(2000);
+  stop();
+  delay(250);
 }
 
 void MecanumDrive::stop(bool hard /* = false */) {
@@ -38,15 +56,13 @@ void MecanumDrive::stop(bool hard /* = false */) {
 }
 
 void MecanumDrive::forward() {
-  for (int i = 0; i < 4; i++) {
-    _wheels[i].forward();
-  }
+  leftWheels();
+  rightWheels();
 }
 
 void MecanumDrive::reverse() {
-  for (int i = 0; i < 4; i++) {
-    _wheels[i].reverse();
-  }
+  leftWheels(false);
+  rightWheels(false);
 }
 
 void MecanumDrive::rotate(bool clockwise /* = true */) {
