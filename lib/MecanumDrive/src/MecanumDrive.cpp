@@ -29,14 +29,14 @@ void MecanumDrive::wheelTest() {
 }
 
 void MecanumDrive::demo() {
-  forward();
-  demoMoveDelay();
-  reverse();
-  demoMoveDelay();
-  rotate();
-  demoMoveDelay();
-  rotate(false);
-  demoMoveDelay();
+  forward(); demoMoveDelay();
+  reverse(); demoMoveDelay();
+  rotate(); demoMoveDelay();
+  rotate(false); demoMoveDelay();
+  circle(); demoMoveDelay();
+  circle(true, false); demoMoveDelay();
+  circle(false); demoMoveDelay();
+  circle(false); demoMoveDelay;
 }
 
 void MecanumDrive::demoMoveDelay() {
@@ -66,9 +66,15 @@ void MecanumDrive::reverse() {
 }
 
 void MecanumDrive::rotate(bool clockwise /* = true */) {
-  for (int i = 0; i < 4; i++) {
-    leftWheels(clockwise);
-    rightWheels(!clockwise);
+  leftWheels(clockwise);
+  rightWheels(!clockwise);
+}
+
+void MecanumDrive::circle(bool rightwards /* = true */, bool forward /* = true */) {
+  if (rightwards) {
+    leftWheels(forward);
+  } else {
+    rightWheels(forward);
   }
 }
 

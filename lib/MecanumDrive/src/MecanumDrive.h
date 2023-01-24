@@ -87,12 +87,29 @@
       void reverse();
 
       /**
-       * @brief Rotates th vehicle in place until stopped.
+       * @brief Rotates the vehicle in place until stopped.
        * 
        * @param clockwise True by default, pass false to 
        *                  rotate counter cloclwise.
        */
       void rotate(bool clockwise = true);
+
+      /**
+       * @brief Moves the vehicle in circle.
+       * 
+       * Makes the vehicle circle to the right or to the left, 
+       * going forward or reverse.
+       * 
+       * @param rightwards If true (default) makes the vehicle
+       *        circle to the right, false makes it circle to 
+       *        the left.
+       * @param forward  If true (default) makes the vehicle 
+       *        rotate in the forward direction (clockwise if
+       *        it circles to the right, counter clockwise if
+       *        it circles to the left). False makes it circle
+       *        while going backward.
+       */
+      void circle(bool rightwards = true, bool forward = true );
 
     private:
       MecanumWheel *_wheels;
