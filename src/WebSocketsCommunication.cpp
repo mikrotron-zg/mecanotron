@@ -40,10 +40,14 @@ void onWebSocketEvent(uint8_t client_num, WStype_t type, uint8_t *payload, size_
         DEBUG("Received: "); DEBUGLN(text);
         
         if (text == "stop") {
-          // TODO stop the robot, this is critical so we check for it first
+          drive.stop();
         } else if (text == "getStatus") {
           // send the current status
           sendMessage(MSG_STATUS, 0); // TODO we need status enum
+        } else if (text == "wtest") {
+          drive.wheelTest();
+        } else if (text == "demo") {
+          drive.demo();
         }
         break;
       }

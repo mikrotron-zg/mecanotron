@@ -70,6 +70,21 @@ function wsOnError(wsEvent) {
   writeLog("ERROR: " + wsEvent.data);
 }
 
+// On stop command
+function doStop() {
+  wsSendMessage("stop");
+}
+
+// On wheel test command
+function doWheelTest() {
+  wsSendMessage("wtest");
+}
+
+// On demo command
+function doDemo() {
+  wsSendMessage("demo");
+}
+
 // Send message to WebSocket server
 function wsSendMessage(message) {
   if (!connectedToServer) {
