@@ -33,6 +33,10 @@ void MecanumDrive::demo() {
   reverse(); demoMoveDelay();
   sideways(); demoMoveDelay();
   sideways(false); demoMoveDelay();
+  diagonal(); demoMoveDelay();
+  diagonal(true, false); demoMoveDelay();
+  diagonal(false); demoMoveDelay();
+  diagonal(false, false); demoMoveDelay();
   rotate(); demoMoveDelay();
   rotate(false); demoMoveDelay();
   circle(); demoMoveDelay();
@@ -42,7 +46,7 @@ void MecanumDrive::demo() {
 }
 
 void MecanumDrive::demoMoveDelay() {
-  delay(2000);
+  delay(1000);
   stop();
   delay(250);
 }
@@ -86,6 +90,26 @@ void MecanumDrive::sideways(bool rightwards /* = true*/) {
       if (rightwards) _wheels[i].forward(); else _wheels[i].reverse();
     } else {
       if (rightwards) _wheels[i].reverse(); else _wheels[i].forward();
+    }
+  }
+}
+
+void MecanumDrive::diagonal(bool rightwards /* = true*/, bool forward /* = true*/) {
+  if (rightwards) {
+    if (forward) {
+      _wheels[0].forward();
+      _wheels[3].forward();
+    } else {
+      _wheels[0].reverse();
+      _wheels[3].reverse();
+    }
+  } else {
+    if (forward) {
+      _wheels[1].forward();
+      _wheels[2].forward();
+    } else {
+      _wheels[1].reverse();
+      _wheels[2].reverse();
     }
   }
 }

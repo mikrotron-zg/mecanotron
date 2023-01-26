@@ -109,7 +109,7 @@
        *        it circles to the left). False makes it circle
        *        while going backward.
        */
-      void circle(bool rightwards = true, bool forward = true );
+      void circle(bool rightwards = true, bool forward = true);
 
       /**
        * @brief Moves the vehicle sideways.
@@ -118,6 +118,18 @@
        *        to the right, false makes it move to the left.
        */
       void sideways(bool rightwards = true);
+
+      /**
+       * @brief Moves the vehicle diagonaly.
+       * 
+       * @param rightwards If true (default) makes the vehicle
+       *        move on the right diagonal, false makes it  
+       *        move on the left diagonal.
+       * @param forward  If true (default) makes the vehicle 
+       *        move forward on a diagonal, false makes it move 
+       *        backwards on the diagonal.
+       */
+      void diagonal(bool rightwards = true, bool forward = true);
 
     private:
       MecanumWheel *_wheels;
