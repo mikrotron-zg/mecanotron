@@ -8,8 +8,8 @@
 The following lists might (and they surley will) change during development.
 
 Features:
-- [ ] it can drive ;-)
-- [ ] unique driving styles: sideways, diagonal and rotate-in-place
+- [x] it can drive ;-)
+- [x] unique driving styles: sideways, diagonal and rotate-in-place
 - [ ] controllable over WiFi
 - [ ] obstacle detection
 
