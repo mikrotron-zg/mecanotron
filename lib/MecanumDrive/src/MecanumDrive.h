@@ -120,6 +120,20 @@
       void sideways(bool rightwards = true);
 
       /**
+       * @brief Moves the vehicle sideways in a circle.
+       * 
+       * The vehicle moves sideways in a circle with the center
+       * (anchor point) behind or in front of the vehicle.
+       * 
+       * @param clockwise If true (default), the circular movement
+       *        is clockwise, false makes it counter clockwise.
+       * @param backAnchorPoint If true (default), the anchor point
+       *        (the center of circle) is behind the vehicle, false
+       *        puts it in front.
+      */
+      void angular(bool clockwise = true, bool backAnchorPoint = true);
+
+      /**
        * @brief Moves the vehicle diagonaly.
        * 
        * @param rightwards If true (default) makes the vehicle
