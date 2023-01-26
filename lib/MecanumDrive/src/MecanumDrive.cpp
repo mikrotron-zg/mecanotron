@@ -31,6 +31,8 @@ void MecanumDrive::wheelTest() {
 void MecanumDrive::demo() {
   forward(); demoMoveDelay();
   reverse(); demoMoveDelay();
+  sideways(); demoMoveDelay();
+  sideways(false); demoMoveDelay();
   rotate(); demoMoveDelay();
   rotate(false); demoMoveDelay();
   circle(); demoMoveDelay();
@@ -75,6 +77,16 @@ void MecanumDrive::circle(bool rightwards /* = true */, bool forward /* = true *
     leftWheels(forward);
   } else {
     rightWheels(forward);
+  }
+}
+
+void MecanumDrive::sideways(bool rightwards /* = true*/) {
+  for (int i = 0; i < 4; i++) {
+    if (i%2 == 0) {
+      if (rightwards) _wheels[i].forward(); else _wheels[i].reverse();
+    } else {
+      if (rightwards) _wheels[i].reverse(); else _wheels[i].forward();
+    }
   }
 }
 

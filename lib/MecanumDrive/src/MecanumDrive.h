@@ -111,6 +111,14 @@
        */
       void circle(bool rightwards = true, bool forward = true );
 
+      /**
+       * @brief Moves the vehicle sideways.
+       * 
+       * @param rightwards If true (default), the vehicle moves
+       *        to the right, false makes it move to the left.
+       */
+      void sideways(bool rightwards = true);
+
     private:
       MecanumWheel *_wheels;
       void demoMoveDelay();
