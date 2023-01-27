@@ -42,7 +42,7 @@ void MecanumDrive::demo() {
   circle(); demoMoveDelay();
   circle(true, false); demoMoveDelay();
   circle(false); demoMoveDelay();
-  circle(false); demoMoveDelay;
+  circle(false, false); demoMoveDelay();
   angular(); demoMoveDelay();
   angular(false); demoMoveDelay();
   angular(true, false); demoMoveDelay();
