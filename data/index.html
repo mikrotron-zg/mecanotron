@@ -5,19 +5,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Mechanotron</title>
+    <title>Mecanotron</title>
 
-    <script src="mechanotron.js"></script>
+    <script src="mecanotron.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        @font-face {
+        font-family: 'Arrows';
+        src: url('arrows.otf') format('truetype');
+        }
+        .arrows {
+            font-family: Arrows;
+            font-weight: bold;
+            font-size: 2em;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row justify-content-center">
             <div id="main_view" class="col-12 col-sm-10 col-md-8 col-lg-6">
-                <h3 class="text-dark">Mechanotron <small>v0.1</small></h3>
+                <h3 class="text-dark">Mecanotron <small>v0.1</small></h3>
     
-                <div class="card mb-3">
+                <div class="card mb-3" style="display:none">
                     <div class="card-header">
                         <h5 class="text-dark">Status: <span id="status">not connected</span></h5>
                     </div>
@@ -29,7 +40,37 @@
                         <button type="button" id="btnDemo" class="btn btn-primary btn-lg btn-block mt-4" onclick="doDemo()" >&ensp;Demo&ensp;</button>
                     </div>
                 </div>
-
+                <div class="row mt-2">
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">M</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">i</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">j</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">O</button></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">m</button></div>
+                    <div class="col-6"><button type="button" class="btn btn-outline-secondary btn-block arrows">C</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">n</button></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">B</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">Y</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">Z</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">A</button></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">o</button></div>
+                    <div class="col-6"><button type="button" class="btn btn-outline-secondary btn-block arrows">D</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">p</button></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">N</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">k</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">l</button></div>
+                    <div class="col-3"><button type="button" class="btn btn-outline-secondary btn-block arrows">P</button></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12"><button type="button" class="btn btn-outline-danger btn-block"><b>S T O P</b></button></div>
+                </div>
             </div>
         </div>
     </div>
