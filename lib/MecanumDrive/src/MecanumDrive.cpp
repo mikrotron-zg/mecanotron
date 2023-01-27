@@ -89,12 +89,12 @@ void MecanumDrive::circle(bool rightwards /* = true */, bool forward /* = true *
 }
 
 void MecanumDrive::sideways(bool rightwards /* = true*/) {
-  for (int i = 0; i < 4; i++) {
-    if (i%2 == 0) {
-      if (rightwards) _wheels[i].forward(); else _wheels[i].reverse();
-    } else {
-      if (rightwards) _wheels[i].reverse(); else _wheels[i].forward();
-    }
+  if (rightwards) {
+    _wheels[0].forward(); _wheels[3].forward();
+    _wheels[1].reverse(); _wheels[2].reverse();
+  } else {
+    _wheels[0].reverse(); _wheels[3].reverse();
+    _wheels[1].forward(); _wheels[2].forward();
   }
 }
 
