@@ -8,11 +8,27 @@ var debug_mode = true; // Should be false for production
 var url = "ws://192.168.4.1:1337/"; // ESP32 WebSocket server listens on port 1337 ;-)
 var connectedToServer = false;      // Keep track if we're connected to WebSocket server
 var systemStatus = "not connected"; // Keep track of the system status
+var panels = [];                  // Store different control panels
 
 // Use this function for initialization
 function init() {
   writeLog("Application start");
+  panelsToArray();
   wsConnect(url); // Connect to ESP32 websocket server
+}
+
+// Store panels in an array
+function panelsToArray() {
+  panels.push(document.getElementById("testDrive"));
+  panels.push(document.getElementById("manualDrive"));
+  panels.push(document.getElementById("assistedDrive"));
+  panels.push(document.getElementById("autonomousDrive"));
+  onDriveModeChange(1);
+}
+
+// Hide panel
+function hidePanel(value) {
+  value.style.display = "none";
 }
 
 // Call the init function as soon as the page loads
@@ -24,6 +40,13 @@ function writeLog(message) {
     message = new Date().toLocaleString() + " - " + message;
     console.log(message);
   }
+}
+
+// On drive mode change
+function onDriveModeChange(value) {
+  writeLog("Selected value: " + value);
+  panels.forEach(hidePanel); // hide all panels
+  panels[value].style.display = "inline";
 }
 
 /*****************************************************************************

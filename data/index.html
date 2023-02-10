@@ -27,123 +27,138 @@
         <div class="row justify-content-center">
             <div id="main_view" class="col-12 col-sm-10 col-md-8 col-lg-6">
                 <h3 class="text-dark">Mecanotron <small>v0.1</small></h3>
-    
-                <div class="card mb-3" style="display:none">
-                    <div class="card-header">
-                        <h5 class="text-dark">Status: <span id="status">not connected</span></h5>
+                <hr></hr>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="drive-mode">Drive mode</label>
                     </div>
-                    <div class="card-body">
-                        <div class="text-right">
-                            <button type="button" id="btnStop" class="btn btn-danger btn-lg" onclick="doStop()">&ensp;Stop&ensp;</button>
+                    <select class="custom-select" name="drive-mode" id="drive-mode" onchange="onDriveModeChange(this.value)">
+                        <option value="0">Test/demo</option>
+                        <option value="1" selected>Manual drive</option>
+                        <option value="2">Assisted drive</option>
+                        <option value="3">Autonomous drive</option>
+                    </select>
+                </div>
+                <hr></hr>
+                <div id="testDrive">
+                    <button type="button" id="btnWheelTest" class="btn btn-primary btn-lg btn-block mt-4" onclick="doWheelTest()" >&ensp;Wheel test&ensp;</button>
+                    <button type="button" id="btnDemo" class="btn btn-primary btn-lg btn-block mt-4" onclick="doDemo()" >&ensp;Demo&ensp;</button>
+                    <div class="text-right" style="display:none;">
+                        <button type="button" id="btnStop" class="btn btn-danger btn-lg" onclick="doStop()">&ensp;Stop&ensp;</button>
+                    </div>
+                </div>
+                <div id="manualDrive">
+                    <div class="row mt-2">
+                        <div class="col-3">
+                            <button type="button" id="btn1" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">M</button>
                         </div>
-                        <button type="button" id="btnWheelTest" class="btn btn-primary btn-lg btn-block mt-4" onclick="doWheelTest()" >&ensp;Wheel test&ensp;</button>
-                        <button type="button" id="btnDemo" class="btn btn-primary btn-lg btn-block mt-4" onclick="doDemo()" >&ensp;Demo&ensp;</button>
+                        <div class="col-3">
+                            <button type="button" id="btn2" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">i</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn3" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">j</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn4" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">O</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-3">
+                            <button type="button" id="btn5" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">m</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" id="btn6" class="btn btn-outline-secondary btn-block arrows"
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">C</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn7" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">n</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-3">
+                            <button type="button" id="btn8" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">B</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn9" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">Y</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn10" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">Z</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn11" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">A</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-3">
+                            <button type="button" id="btn12" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">o</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" id="btn13" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">D</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn14" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">p</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-3">
+                            <button type="button" id="btn15" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">N</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn16" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">k</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn17" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">l</button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" id="btn18" class="btn btn-outline-secondary btn-block arrows" 
+                                ontouchstart="doDrive(this.id)" ontouchend="doStop()"
+                                onmousedown="doDrive(this.id)" onmouseup="doStop()">P</button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <button type="button" id="btn0" class="btn btn-lg btn-danger btn-block" onclick="doStop()"><b>S T O P</b></button>
+                        </div>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-3">
-                        <button type="button" id="btn1" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">M</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn2" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">i</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn3" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">j</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn4" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">O</button>
-                    </div>
+                <div id="assistedDrive">
+                    Not implemented yet.
                 </div>
-                <div class="row mt-2">
-                    <div class="col-3">
-                        <button type="button" id="btn5" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">m</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" id="btn6" class="btn btn-outline-secondary btn-block arrows"
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">C</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn7" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">n</button>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-3">
-                        <button type="button" id="btn8" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">B</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn9" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">Y</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn10" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">Z</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn11" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">A</button>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-3">
-                        <button type="button" id="btn12" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">o</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" id="btn13" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">D</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn14" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">p</button>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-3">
-                        <button type="button" id="btn15" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">N</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn16" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">k</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn17" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">l</button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" id="btn18" class="btn btn-outline-secondary btn-block arrows" 
-                            ontouchstart="doDrive(this.id)" ontouchend="doStop()"
-                            onmousedown="doDrive(this.id)" onmouseup="doStop()">P</button>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-12">
-                        <button type="button" id="btn0" class="btn btn-lg btn-danger btn-block" onclick="doStop()"><b>S T O P</b></button>
-                    </div>
+                <div id="autonomousDrive">
+                    Not implemented yet.
                 </div>
             </div>
         </div>
