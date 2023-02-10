@@ -30,6 +30,39 @@ MecanumWheel wheels[] = {MecanumWheel(FRONT_LEFT_WHEEL_PIN_A, FRONT_LEFT_WHEEL_P
 
 MecanumDrive drive (wheels);
 
+/**
+ * @brief Handles drive command received from controller.
+ * 
+ * @param driveCommand Enum value 0-18, 0 being stop command.
+ */
+void handleDriveCommand(int driveCommand) {
+  DEBUG("Handeling drive command: "); DEBUGLN(driveCommand);
+  drive.stop();
+  delay(150);
+  switch (driveCommand) {
+    case STOP: break; // already stopped, do nothing
+    case FORWARD_LEFT_DIAGONAL: drive.diagonal(false, true); break;
+    case CIRCLE_FRONT_COUNTERCLOCKWISE: drive.angular(false, true); break;
+    case CIRCLE_FRONT_CLOCKWISE: drive.angular(); break;
+    case FORWARD_RIGHT_DIAGONAL: drive.diagonal();break;
+    case CIRCLE_LEFT_COUNTERCLOCKWISE: drive.circle(false, true);break;
+    case FORWARD: drive.forward(); break;
+    case CIRCLE_RIGHT_CLOCKWISE: drive.circle();break;
+    case SIDEWAYS_LEFT: drive.sideways(false);break;
+    case ROTATE_CLOCKWISE: drive.rotate(); break;
+    case ROTATE_COUNTERCLOCKWISE: drive.rotate(false); break;
+    case SIDEWAYS_RIGHT: drive.sideways();break;
+    case CIRCLE_LEFT_CLOCKWISE: drive.circle(false, false); break;
+    case REVERSE: drive.reverse(); break;
+    case CIRCLE_RIGHT_COUNTERCLOCKWISE: drive.circle(true, false); break;
+    case BACKWARD_LEFT_DIAGONAL: drive.diagonal(true, false); break;
+    case CIRCLE_BACK_CLOCKWISE: drive.angular(true, false); break;
+    case CIRCLE_BACK_COUNTERCLOCKWISE: drive.angular(false, false); break;
+    case BACKWARD_RIGHT_DIAGONAL: drive.diagonal(false, false); break;
+    default: drive.stop();
+  }
+}
+
 void setup() {
     // Program start
   #ifdef DEBUG_MODE

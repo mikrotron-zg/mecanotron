@@ -20,7 +20,14 @@ void onJSrequest(AsyncWebServerRequest *request) {
   // Client JavaScript request
   IPAddress remote_ip = request->client()->remoteIP();
   DEBUG(remote_ip.toString()); DEBUG(" requested "); DEBUGLN(request->url());
-  request->send(SPIFFS, "/mechanotron.js", "text/javascript"); // send back JS file
+  request->send(SPIFFS, "/mecanotron.js", "text/javascript"); // send back JS file
+}
+
+void onFontRequest(AsyncWebServerRequest *request) {
+  // Client custom font request
+  IPAddress remote_ip = request->client()->remoteIP();
+  DEBUG(remote_ip.toString()); DEBUG(" requested "); DEBUGLN(request->url());
+  request->send(SPIFFS, "/arrows.otf", "font/otf"); // send back font file
 }
 
 void onCSSRequest(AsyncWebServerRequest *request) {
@@ -59,7 +66,8 @@ void startWebServer() {
 
   // HTTP requests handling
   server.on("/", HTTP_GET, onRootRequest); // root request
-  server.on("/mechanotron.js", HTTP_GET, onJSrequest); //JavaScript request
+  server.on("/mecanotron.js", HTTP_GET, onJSrequest); //JavaScript request
+  server.on("/arrows.otf", HTTP_GET, onFontRequest); // Custom font request
   server.on("/bootstrap.min.css", HTTP_GET, onCSSRequest); // CSS request
   server.on("/bootstrap.min.css.map", HTTP_GET, onCSSMapRequest); // CSS map request
   server.onNotFound(onPageNotFound); // anything else

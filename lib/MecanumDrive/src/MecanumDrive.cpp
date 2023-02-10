@@ -99,22 +99,18 @@ void MecanumDrive::sideways(bool rightwards /* = true*/) {
 }
 
 void MecanumDrive::angular(bool clockwise /* = true*/, bool backAnchorPoint /* = true*/) {
+  int left = 2;
+  int right = 3;
   if (backAnchorPoint) {
-    if (clockwise) {
-      _wheels[0].forward();
-      _wheels[1].reverse();
-    } else {
-      _wheels[0].reverse();
-      _wheels[1].forward();
-    }
+    left = 0;
+    right = 1;
+  } 
+  if (clockwise) {
+    _wheels[left].forward();
+    _wheels[right].reverse();
   } else {
-    if (clockwise) {
-      _wheels[2].reverse();
-      _wheels[3].forward();
-    } else {
-      _wheels[2].forward();
-      _wheels[3].reverse();
-    }
+    _wheels[left].reverse();
+    _wheels[right].forward();
   }
 }
 

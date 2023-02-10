@@ -10,7 +10,7 @@ The following lists might (and they surley will) change during development.
 Features:
 - [x] it can drive ;-)
 - [x] unique driving styles: sideways, diagonal and rotate-in-place
-- [ ] controllable over WiFi
+- [x] controllable over WiFi
 - [ ] obstacle detection
 
 Hardware:

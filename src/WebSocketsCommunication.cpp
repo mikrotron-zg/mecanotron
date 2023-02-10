@@ -39,8 +39,9 @@ void onWebSocketEvent(uint8_t client_num, WStype_t type, uint8_t *payload, size_
         String text = (char *)payload;
         DEBUG("Received: "); DEBUGLN(text);
         
-        if (text == "stop") {
-          drive.stop();
+        if (text.substring(0,3) == "btn") {
+          // Handle drive buttons
+          handleDriveCommand((text.substring(3)).toInt());
         } else if (text == "getStatus") {
           // send the current status
           sendMessage(MSG_STATUS, 0); // TODO we need status enum

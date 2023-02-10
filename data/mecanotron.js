@@ -70,9 +70,14 @@ function wsOnError(wsEvent) {
   writeLog("ERROR: " + wsEvent.data);
 }
 
+// On drive button command
+function doDrive(buttonId) {
+  wsSendMessage(buttonId);
+}
+
 // On stop command
 function doStop() {
-  wsSendMessage("stop");
+  wsSendMessage("btn0");
 }
 
 // On wheel test command
